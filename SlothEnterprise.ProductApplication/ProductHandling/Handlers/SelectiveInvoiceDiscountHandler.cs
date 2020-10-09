@@ -1,6 +1,7 @@
 ﻿using SlothEnterprise.External.V1;
 using SlothEnterprise.ProductApplication.Applications;
 using SlothEnterprise.ProductApplication.Products;
+using SlothEnterprise.ProductApplication.ServiceResults;
 
 namespace SlothEnterprise.ProductApplication.ProductHandling.Handlers
 {
@@ -19,12 +20,14 @@ namespace SlothEnterprise.ProductApplication.ProductHandling.Handlers
             return product is SelectiveInvoiceDiscount;
         }
 
-        public int SubmitApplicationFor(ISellerApplication application)
+        public ServiceResult SubmitApplicationFor(ISellerApplication application)
         {
-            return selectInvoiceService.SubmitApplicationFor(
+            var result = selectInvoiceService.SubmitApplicationFor(
                 application.CompanyData.Number.ToString(),
                 Product.InvoiceAmount,
                 Product.AdvancePercentage);
+
+          return new ServiceResult(result);
         }
     }
 }

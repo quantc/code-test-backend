@@ -2,8 +2,9 @@
 using SlothEnterprise.External.V1;
 using SlothEnterprise.ProductApplication.Applications;
 using SlothEnterprise.ProductApplication.Products;
+using SlothEnterprise.ProductApplication.ServiceResults;
 
-namespace SlothEnterprise.ProductApplication.ProductHandling
+namespace SlothEnterprise.ProductApplication.ProductHandling.Handlers
 {
     public class BusinessLoansHandler : BaseServiceHandler<BusinessLoans>, IProductHandler
     {
@@ -20,7 +21,7 @@ namespace SlothEnterprise.ProductApplication.ProductHandling
             return product is ConfidentialInvoiceDiscount;
         }
 
-        public int SubmitApplicationFor(ISellerApplication application)
+        public ServiceResult SubmitApplicationFor(ISellerApplication application)
         {
             var result = _businessLoansService.SubmitApplicationFor(new CompanyDataRequest
             {
@@ -33,7 +34,8 @@ namespace SlothEnterprise.ProductApplication.ProductHandling
                 InterestRatePerAnnum = Product.InterestRatePerAnnum,
                 LoanAmount = Product.LoanAmount
             });
-            return (result.Success) ? result.ApplicationId ?? -1 : -1;
+
+            return new ServiceResult(result);
         }
     }
 }

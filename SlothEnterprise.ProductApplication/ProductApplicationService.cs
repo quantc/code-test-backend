@@ -1,5 +1,6 @@
 ﻿using SlothEnterprise.ProductApplication.Applications;
 using SlothEnterprise.ProductApplication.ProductHandling;
+using SlothEnterprise.ProductApplication.ServiceResults;
 
 namespace SlothEnterprise.ProductApplication
 {
@@ -13,7 +14,7 @@ namespace SlothEnterprise.ProductApplication
         }
 
         // Comments.md - my remark about returning meaningful result/error object instead of int
-        public int SubmitApplicationFor(ISellerApplication application)
+        public ServiceResult SubmitApplicationFor(ISellerApplication application)
         {
             // Validate.IsNotNull(application); -> guard for param validation
 

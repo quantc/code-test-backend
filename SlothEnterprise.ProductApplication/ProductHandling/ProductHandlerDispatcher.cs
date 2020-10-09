@@ -1,4 +1,5 @@
-﻿using SlothEnterprise.ProductApplication.Products;
+﻿using SlothEnterprise.ProductApplication.ProductHandling.Handlers;
+using SlothEnterprise.ProductApplication.Products;
 
 namespace SlothEnterprise.ProductApplication.ProductHandling
 {
