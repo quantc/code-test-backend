@@ -6,9 +6,11 @@ namespace SlothEnterprise.ProductApplication.ServiceResults
 {
     public class ServiceResult
     {
-        public int? ApplicationId { get; set; } = null;
+        public int? ApplicationId { get; set; }
         IList<ServiceError> Errors { get; set; }
 
+        // A couple of overloads.
+        // In real life scenario I would probably remove some of them or reuse them ( : base(args..))
         public ServiceResult(int applicationId)
         {
             ApplicationId = applicationId;

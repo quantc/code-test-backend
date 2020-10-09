@@ -18,7 +18,7 @@ namespace SlothEnterprise.ProductApplication.ProductHandling.Handlers
 
         public bool CanHandle(IProduct product)
         {
-            return product is ConfidentialInvoiceDiscount;
+            return product is BusinessLoans;
         }
 
         public ServiceResult SubmitApplicationFor(ISellerApplication application)
